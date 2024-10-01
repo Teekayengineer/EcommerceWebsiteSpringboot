@@ -1,0 +1,92 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Shopping Cart - Foxetech Electronics</title>
+    <
+</head>
+<body>
+
+<header>
+    <h1>Foxetech Electronics</h1>
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="product.html">Products</a>
+        <a href="cart.html">Cart</a> <!-- Link to the cart page -->
+        <a href="#">Login</a>
+    </nav>
+</header>
+
+<div class="cart-container">
+    <h2>Your Shopping Cart</h2>
+
+    <div class="cart-item" data-price ="5.99">
+        <img src="./images/m10.jpg" alt="Product 1">
+        <h3>M10 Earpods</h3>
+        <p>$5.99</p>
+        <input type="number" class="quantity" value="1" min="1" onchange="updateTotal()">
+        <button onclick="removeItem(this)">Remove</button>
+    </div>
+    <div class="cart-item" data-price ="0.99">
+        <img src="./images/oraimo.jpg" alt="Product 2">
+        <h3>Oraimo Earphones</h3>
+        <p>$0.99</p>
+        <input type="number" class="quantity" value="1" min="1" onchange="updateTotal()">
+        <button onclick="removeItem(this)">Remove</button>
+    </div>
+    <div class="cart-item" data-price ="2.99">
+        <img src="./images/c-c.jpg" alt="Product 3">
+        <h3>C-C Data cable</h3>
+        <p>$2.99</p>
+        <input type="number" class="quantity" value="1" min="1" onchange="updateTotal()">
+        <button onclick="removeItem(this)">Remove</button>
+    </div>
+    <div class="cart-item" data-price ="2.99">
+        <img src="./images/otg.jpg" alt="Product 4">
+        <h3>OTG Type-C</h3>
+        <p>$2.99</p>
+        <input type="number" class="quantity" value="1" min="1" onchange="updateTotal()">
+        <button onclick="removeItem(this)">Remove</button>
+    </div>
+
+    <div class="total">
+        Total: $89.97
+    </div>
+    <button class="checkout-button" onclick="checkout()">Checkout</button>
+</div>
+
+<footer>
+    &copy; 2024 Foxetech Electronics. All rights reserved.
+</footer>
+
+<script>
+    function updateTotal() {
+        const cartItems = document.querySelectorAll('.cart-item');
+        let total = 0;
+
+        cartItems.forEach(item => {
+            const price = parseFloat(item.getAttribute('data-price'));
+            const quantity = parseInt(item.querySelector('.quantity').value);
+            total += price * quantity;
+        });
+
+        document.querySelector('.total').innerText = 'Total: $' + total.toFixed(2);
+    }
+    function removeItem(button) {
+        const cartItem = button.parentElement;
+        cartItem.remove();
+        updateTotal();
+        // Update total price logic could go here
+    }
+
+    function checkout() {
+        alert('Proceeding to checkout!');
+        // Checkout logic could go here
+    }
+    updateTotal();
+</script>
+</body>
+</html>

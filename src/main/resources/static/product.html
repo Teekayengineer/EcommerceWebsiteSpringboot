@@ -1,0 +1,75 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Product Page - Foxetech Electronics</title>
+</head>
+<body>
+
+<header>
+    <h1>Foxetech Electronics</h1>
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="product.html">Products</a>
+        <a href="cart.html">Cart</a>
+        <a href="#">Login</a>
+    </nav>
+</header>
+
+<div class="product-container">
+    <div class="product-images">
+        <img src="./images/m10.jpg" alt="Product Image">
+        <img src="./images/m102.jpg" alt="Product Image 2">
+    </div>
+    <div class="product-details">
+        <h2>M10 Earpods</h2>
+        <p class="price">$5.99</p>
+        <p>The earbuds have Bluetooth 5.1 technology, the latest one on the market. This can help you keep connected even when you are far away from your device.</p>
+        <button onclick="addToCart('Product Name')">Add to Cart</button>
+    </div>
+    <div class="product-images">
+        <img src="./images/oraimo.jpg" alt="Product Image">
+        <img src="./images/oraimo2.jpg" alt="Product Image 2">
+    </div>
+    <div class="product-details">
+        <h2>Oraimo Earphones</h2>
+        <p class="price">$0.99</p>
+        <p>The earbuds have Bluetooth 5.1 technology, the latest one on the market. This can help you keep connected even when you are far away from your device.</p>
+        <button onclick="addToCart('Product Name')">Add to Cart</button>
+    </div>
+</div>
+<div class="product-container">
+    <div class="product-images">
+        <img src="./images/c-c.jpg" alt="Product Image">
+        <img src="./images/c-type2.jpg" alt="Product Image 2">
+    </div>
+    <div class="product-details">
+        <h2>C-C Data cables</h2>
+        <p class="price">$2.99</p>
+        <p>The earbuds have Bluetooth 5.1 technology, the latest one on the market. This can help you keep connected even when you are far away from your device.</p>
+        <button onclick="addToCart('Product Name')">Add to Cart</button>
+    </div>
+    <div class="product-images">
+        <img src="./images/otg2.jpg" alt="Product Image">
+        <img src="./images/otg.jpg" alt="Product Image 2">
+    </div>
+    <div class="product-details">
+        <h2>OTG C-Type</h2>
+        <p class="price">$2.99</p>
+        <p>The earbuds have Bluetooth 5.1 technology, the latest one on the market. This can help you keep connected even when you are far away from your device.</p>
+        <button onclick="addToCart('Product Name')">Add to Cart</button>
+    </div>
+</div>
+
+<script>
+    function addToCart(productName) {
+        alert(productName + ' has been added to your cart!');
+    }
+</script>
+
+
+</body>
+</html>

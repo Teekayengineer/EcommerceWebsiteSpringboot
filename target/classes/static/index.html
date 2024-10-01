@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="style.css">
+    <title>ecommerce website</title>
+</head>
+<body>
+<header>
+    <h1>FOXETECH ELECTRONICS</h1>
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="product.html" id="productsLink" onclick="checkLogin(event)">Products</a>
+        <a href="cart.html" id="cartLink" onclick="checkLogin(event)">Cart</a>
+        <a href="#" id="loginBtn">Login</a> <!-- Trigger for the login modal -->
+    </nav>
+</header>
+
+<div class="banner">
+
+    <marquee behavior="scroll" direction="left" scrollamount="5" scrolldelay="100" width="100%" bgcolor="#141414"> One-stop shop for cutting-edge electronics and accessories."</marquee>
+</div>
+
+<div class="container">
+    <div class="product-card">
+        <img src="./images/m10.jpg" alt="Product 1">
+        <h3>M1O Earpods</h3>
+        <p>$5.99</p>
+        <a href="product.html">
+            <button onclick="addToCart('Product 1')">Add to Cart</button>
+        </a>
+    </div>
+    <div class="product-card">
+        <img src="./images/oraimo.jpg" alt="Product 2">
+        <h3>Oraimo Earphones</h3>
+        <p>$0.99</p>
+        <a href="product.html">
+            <button onclick="addToCart('Product 2')">Add to Cart</button>
+        </a>
+    </div>
+    <div class="product-card">
+        <img src="./images/otg.jpg" alt="Product 3">
+        <h3>OTG C-Type</h3>
+        <p>$2.99</p>
+        <a href="product.html">
+            <button onclick="addToCart('Product 3')">Add to Cart</button>
+        </a>
+    </div>
+    <div class="product-card">
+        <img src="./images/c-c.jpg" alt="Product 4">
+        <h3>C-C Data Cable</h3>
+        <p>$1.99</p>
+        <a href="product.html">
+            <button onclick="addToCart('Product 4')">Add to Cart</button>
+        </a>
+    </div>
+    <div class="product-card">
+        <img src="./images/m10.jpg" alt="Product 5">
+        <h3>M1O Earpods</h3>
+        <p>$5.99</p>
+        <a href="product.html">
+            <button onclick="addToCart('Product 5')">Add to Cart</button>
+        </a>
+    </div>
+    <div class="product-card">
+        <img src="./images/oraimo.jpg" alt="Product 6">
+        <h3>Oraimo Earphones</h3>
+        <p>$0.99</p>
+        <a href="product.html">
+            <button onclick="addToCart('Product 6')">Add to Cart</button>
+        </a>
+    </div>
+    <div class="product-card">
+        <img src="./images/otg.jpg" alt="Product 7">
+        <h3>OTG C-Type</h3>
+        <p>$2.99</p>
+        <a href="product.html">
+            <button onclick="addToCart('Product 7')">Add to Cart</button>
+        </a>
+    </div>
+    <div class="product-card">
+        <img src="./images/c-c.jpg" alt="Product 8">
+        <h3>C-C Data Cable</h3>
+        <p>$1.99</p>
+        <a href="product.html">
+            <button onclick="addToCart('Product 8')">Add to Cart</button>
+        </a>
+    </div>
+    <div class="product-card">
+        <img src="./images/m10.jpg" alt="Product 9">
+        <h3>M1O Earpods</h3>
+        <p>$5.99</p>
+        <a href="product.html">
+            <button onclick="addToCart('Product 9')">Add to Cart</button>
+        </a>
+    </div>
+    <div class="product-card">
+        <img src="./images/oraimo.jpg" alt="Product 10">
+        <h3>Oraimo Earphones</h3>
+        <p>$0.99</p>
+        <a href="product.html">
+            <button onclick="addToCart('Product 10')">Add to Cart</button>
+        </a>
+    </div>
+    <div class="product-card">
+        <img src="./images/otg.jpg" alt="Product 11">
+        <h3>OTG C-Type</h3>
+        <p>$2.99</p>
+        <a href="product.html">
+            <button onclick="addToCart('Product 11')">Add to Cart</button>
+        </a>
+    </div>
+    <div class="product-card">
+        <img src="./images/c-c.jpg" alt="Product 12">
+        <h3>C-C Data Cable</h3>
+        <p>$1.99</p>
+        <a href="product.html">
+            <button onclick="addToCart('Product 12')">Add to Cart</button>
+        </a>product 4')">Add to Cart</button>
+    </div>
+    <div class="login-modal" id="loginModal">
+        <div class="modal-content">
+            <span class="close" id="closeModal">&times;</span>
+            <h2>Login</h2>
+            <input type="email" id="email" placeholder="Email" required>
+            <input type="text" id="username" placeholder="Username" required>
+            <input type="password" id="password" placeholder="Password" required>
+            <button class="login-button" onclick="login()">Login</button>
+            <p id="loginMessage" style="color: red;"></p> <!-- Message area for login feedback -->
+        </div>
+    </div>
+</div>
+
+<footer>
+    &copy; 2024 FOXTECH. All rights reserved.
+</footer>
+
+<script>
+    // Simulated user database
+    const users = [
+        { email: "user1@example.com", username: "user1", password: "password1" },
+        { email: "user2@example.com", username: "user2", password: "password2" },
+    ];
+
+    let loggedIn = false; // Track login status
+    let intendedAction = null; // Store the intended action
+
+    // Get modal element
+    const modal = document.getElementById("loginModal");
+    const loginBtn = document.getElementById("loginBtn");
+    const closeModal = document.getElementById("closeModal");
+
+    // Show the modal when the login button is clicked
+    loginBtn.onclick = function() {
+        modal.style.display = "block";
+    }
+
+    // Close the modal when the x is clicked
+    closeModal.onclick = function() {
+        modal.style.display = "none";
+        clearLoginMessage(); // Clear message on close
+    }
+
+    // Close the modal when clicking outside of the modal content
+    window.onclick = function(event) {
+        if (event.target === modal) {
+            modal.style.display = "none";
+            clearLoginMessage(); // Clear message on close
+        }
+    }
+
+    // Login function
+    function login() {
+        const email = document.getElementById("email").value;
+        const username = document.getElementById("username").value;
+        const password = document.getElementById("password").value;
+        const messageElement = document.getElementById("loginMessage");
+
+        const user = users.find(user => user.email === email && user.username === username && user.password === password);
+
+        if (user) {
+            alert("Login successful!");
+            loggedIn = true; // Update login status
+            modal.style.display = "none"; // Close modal on success
+            clearLoginMessage(); // Clear message on success
+
+            // Redirect based on intended action
+            if (intendedAction) {
+                if (intendedAction === 'product') {
+                    // Navigate to the products page (example)
+                    window.location.href = "product.html"; // Change to your actual products page URL
+                } else if (intendedAction === 'cart') {
+                    // Navigate to the cart page (example)
+                    window.location.href = "cart.html"; // Change to your actual cart page URL
+                }
+            }
+        } else {
+            messageElement.innerText = "Invalid email, username, or password.";
+        }
+    }
+
+    function clearLoginMessage() {
+        document.getElementById("loginMessage").innerText = "";
+    }
+
+    // Check login status before accessing certain pages
+    function checkLogin(action) {
+        if (!loggedIn) {
+            intendedAction = action; // Store the intended action
+            modal.style.display = "block"; // Show login modal
+        } else {
+            // Already logged in, proceed with the action
+            if (action === 'product') {
+                window.location.href = "product.html"; // Change to your actual products page URL
+            } else if (action === 'cart') {
+                window.location.href = "cart.html"; // Change to your actual cart page URL
+            }
+        }
+    }
+
+    // Simulate adding to cart
+    function addToCart() {
+        if (loggedIn) {
+            alert("Product added to cart!");
+            // Logic to add the product to the cart can go here
+        } else {
+            intendedAction = 'cart'; // Store intended action to navigate to cart
+            modal.style.display = "block"; // Show login modal
+        }
+    }
+
+</script>
+
+</body>
+</html>
